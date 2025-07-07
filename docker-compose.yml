@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # Main application service
+  seventwentyclocks:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+
+      - "4000:4000"  # Maps container port 4000 to host port 4000
+    restart: unless-stopped
+    container_name: seventwentyclocks
+    environment:
+      - NODE_ENV=production
+    # Add healthcheck to ensure container is running properly
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:4000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    # Limit resources to prevent container from consuming too much
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
