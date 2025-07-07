@@ -21,7 +21,7 @@ This document explains how to run the SevenTwentyClocks application using Docker
    docker-compose up -d
    ```
 
-3. Access the application at http://localhost:3000
+3. Access the application at http://localhost:4000
 
 4. To stop the container:
    ```
@@ -37,10 +37,10 @@ This document explains how to run the SevenTwentyClocks application using Docker
 
 2. Run the container:
    ```
-   docker run -p 3000:3000 --name seventwentyclocks seventwentyclocks
+   docker run -p 4000:4000 --name seventwentyclocks seventwentyclocks
    ```
 
-3. Access the application at http://localhost:3000
+3. Access the application at http://localhost:4000
 
 4. To stop the container:
    ```
@@ -72,4 +72,4 @@ If you want to run the application in development mode with hot reloading:
 
 - If you encounter permission issues, try running Docker commands with sudo
 - If the container exits immediately, check the logs with `docker logs seventwentyclocks`
-- If networking issues, ensure port 3000 is not being used by another application
+- For networking issues, ensure port 4000 is not being used by another application
